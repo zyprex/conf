@@ -1,0 +1,36 @@
+#!/bin/bash
+# Usage: ( source in .bashrc )
+# test -f ~/.bashrc_add-on && source ~/.bashrc_add-on
+
+dir-stack-push(){
+export DIR_STACKS=$DIR_STACKS:$PWD # push current path to CD_STACKS
+cd ..
+eval $PROMPT_COMMAND
+pwd
+}
+dir-stack-pop(){
+if [[ -z ${DIR_STACKS##*:} ]]; then
+  return                           # don't cd to home path
+fi
+cd ${DIR_STACKS##*:}               # cd last path
+eval $PROMPT_COMMAND
+pwd
+export DIR_STACKS=${DIR_STACKS%:*} # remove last path
+}
+
+
+#
+# bind
+#
+bind '"i": complete'                # [Alt + i]
+bind '"/": "ls\n"'              # [Alt + /]
+bind 'TAB: menu-complete'             # [TAB]
+bind '"[Z": menu-complete-backward' # [shift + tab]
+bind '"h": "man \n"'              # [Alt + h]
+bind '"OP": "apropos \n"'         # [F1]
+# Enable history expansion with space
+# E.g. typing !!<space> will replace the !! with your last command
+bind Space:magic-space
+
+bind -x '"k":"dir-stack-push"' # [Alt + k]
+bind -x '"j":"dir-stack-pop"'  # [Alt + j]
