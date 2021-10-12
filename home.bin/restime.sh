@@ -2,7 +2,7 @@
 
 # ################[restime.sh]################
 # Turn On:
-#   $ chmod +x ./restime.sh; ./restime.sh&
+#   $ chmod +x ./restime.sh; nohup ./restime.sh&
 # Turn Off:
 #   $ pkill -f restime.sh
 # Auto Start Up:
@@ -48,10 +48,10 @@ function zenityProgress () {
 	for (( i=0; i<=$1; i++ )); do
 		sleep 1
 		echo $(( $i * 100 / $1 ))
-		if [ $i -eq 5 ]; then turnOffScreen; fi
+		# if [ $i -eq 5 ]; then turnOffScreen; fi
 		if [ $i -eq $1 ]; then
 			echo 100
-			turnOnScreen
+			# turnOnScreen
 			break
 		fi
 	done |

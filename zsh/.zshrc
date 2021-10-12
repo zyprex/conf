@@ -12,10 +12,17 @@ fpath=($ZSH_PLUGIN_DIR/local_completion $fpath)
 alias grep='grep --color=auto --exclude-dir={.git,CVS,.svn,.idea}'
 alias diff='grep --color'
 alias so='source'
-alias ls='ls --color=auto'
-alias ll='ls -lhF --sort extension'
-alias lh='ls -d .*'
-alias llh='ls -lhFd --sort extension .* '
+if [[ ! $(type exa >/dev/null) ]]; then
+  alias ls='exa'
+  alias ll='exa -lhF --sort extension'
+  alias lh='exa -d .*'
+  alias llh='exa -lhFd --sort extension .* '
+else
+  alias ls='ls --color=auto'
+  alias ll='ls -lhF --sort extension'
+  alias lh='ls -d .*'
+  alias llh='ls -lhFd --sort extension .* '
+fi
 alias dud='du -d 1 -h'
 alias duf='du -sh * | sort -h'
 alias ffd='find * -type d -iname'    # find for directory
@@ -35,6 +42,15 @@ alias -s {htm,html,org,com}=$BROWSER
 alias -s {jpg,jpeg,png,svg,gif,mng,tiff,tif,xpm}=$IMG_VIEWER
 alias -s {pdf,PDF,epub,oxps}=$DOC_VIEWER
 alias -s {avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,wav}=$MEDIA_PLAYER
+alias v='vim'
+alias e='emacs -nw'
+
+if [[ ! $(type timer.sh >/dev/null) ]]; then
+  alias timer30m='timer.sh -1800'
+  alias timer10m='timer.sh -600'
+  alias timer5m='timer.sh -300'
+  alias timer3m='timer.sh -180'
+fi
 
 #
 # Opt:
@@ -167,6 +183,18 @@ ex(){
     echo "'$1' is not a valid file"
   fi
 }
+# xe - archive compress
+xe(){
+  case $1 in
+    *.tar.bz2) tar -cvf "$@";;
+    *.tar.gz)  tar -cvf "$@";;
+    *.rar)     rar a    "$@";;
+    *.zip)     zip -r   "$@";;
+    *.7z) 7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "$@";;
+    *) echo "Usage: xe [archive_name] [files]\nPossible archive extension:
+- tar.bz2\n- tar.gz\n- rar\n- zip\n- 7z";;
+  esac
+}
 # color man page
 man(){
   LESS_TERMCAP_md=$'\e[01;31m'   \
@@ -182,17 +210,20 @@ trash(){
   mkdir -p /tmp/.trash && mv -iv "$@" /tmp/.trash;
 }
 # checks for existence of a command (0 = true, 1 = false)
-# type_exists() { [ "$(type -P "$1")" ] }
+# type_exists() { [ "$(type -p "$1")" ] }
 # source exist script 
 # sox{}{ test -f $1 && source $1 }
 
 #
 # bindkey
-# tips: you can see all keybindings use $ bindkey, use Ctrl + v + anykey see anykey keycode
-# emacs useful keybind:
+#
+# tips1: see all keybindings use $ bindkey
+# tips2: see anykey keycode use `Ctrl + v + anykey`
+# useful keybind:
 # "^x^v" vi-cmd-mode
 # "^x^f" vi-find-next-char
 # "^x^x" exchange-point-and-mark
+# "^xa"  _expand_alias
 # "^[a"  accept-and-hold
 # "^[s"  spell-word
 # "^[q"  push-line
@@ -250,7 +281,7 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit     && compinit     # initialize the completion
 autoload -Uz bashcompinit && bashcompinit # initialize bash completion
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$HOME/.cache/zsh/zcompcache"
+# zstyle ':completion:*' cache-path "$HOME/.cache/zsh/zcompcache"
 zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 # usual completion, then case-insensitive completion, then partial words completion
 # zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Usage: ( source in .bashrc )
-# test -f ~/.bashrc_add-on && source ~/.bashrc_add-on
+# test -f ~/.bashrc_addon && source ~/.bashrc_addon
 
 dir-stack-push(){
 export DIR_STACKS=$DIR_STACKS:$PWD # push current path to CD_STACKS

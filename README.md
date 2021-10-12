@@ -5,6 +5,7 @@ Private config of desktop environment(prefer feel over look).
 - zsh: replacement of bash.
 - suckless.org: dwm, windows manager, use some widget of xfce4.
 - xfwm4: minic dwm as many as possible.
+- timer.sh: countdown or countup seconds, locate in path `~/bin`.
 - restime.sh: remember to take a break, locate in path `~/bin`.
 - autostart.sh: autostart some programs, locate in path `~/bin`.
 - redshift\_schedule.sh: change redshift color temperature every one hour, locate in path `~/bin`.
@@ -18,7 +19,7 @@ Install fonts for current user only, copy font files to `$HOME/.local/share/font
 
 List available fonts use: `fc-list`.
 
-Find fonts on [ProgrammingFonts](https://github.com/ProgrammingFonts/ProgrammingFonts) 
+Find fonts on [ProgrammingFonts](https://www.programmingfonts.org/).
 
 ## Kill Other TTY
 
