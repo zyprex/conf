@@ -1,0 +1,48 @@
+# for more option see /etc/nanorc
+
+# enable nano syntax highlight
+include "/usr/share/nano/*.nanorc"
+set titlecolor bold,white,blue
+set promptcolor lightwhite,grey
+set statuscolor bold,black,yellow
+set errorcolor bold,white,green
+set spotlightcolor black,lightyellow
+set selectedcolor lightwhite,magenta
+set stripecolor ,yellow
+set scrollercolor cyan
+set numbercolor cyan
+set keycolor cyan
+set functioncolor green
+
+# settings
+set backup
+set backupdir "~/.cache/nano/backup"
+set autoindent
+set tabsize 4
+set breaklonglines
+set indicator
+set linenumbers
+set nohelp
+set boldtext
+set smarthome
+set multibuffer
+set nonewlines
+set softwrap
+#set constantshow
+#set stateflags
+#set suspendable
+
+# useful keys
+## ^G     for help
+## M-X    enable help mode
+## M-R    replace
+## M-A    mark
+## ^W     search forward
+## ^Q     search backward
+## M-3    comment or uncomment
+## M-S    toggle softwrap
+## ^R     read file into new buffer
+## M-,    previous buffer
+## M-.    next buffer
+## M-:    start/stop macro
+## M-;    run macro

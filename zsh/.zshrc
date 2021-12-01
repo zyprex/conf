@@ -329,6 +329,9 @@ load_plugin zsh-autosuggestions
 # https://github.com/zdharma/fast-syntax-highlighting
 load_plugin fast-syntax-highlighting
 
+# https://github.com/skywind3000/z.lua
+eval "$(lua $ZSH_PLUGIN_DIR/z.lua/z.lua --init zsh)"
+
 # clear useless stuff
 unset -f load_plugin
 

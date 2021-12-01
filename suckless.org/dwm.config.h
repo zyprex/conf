@@ -59,12 +59,14 @@ static const char *termcmd[]              = { "xfce4-terminal", NULL };
 static const char *appfinder_cmd[]        = { "xfce4-appfinder", NULL };
 static const char *filesearch_cmd[]       = { "catfish", NULL };
 static const char *lock_cmd[]             = { "light-locker-command", "-l", NULL }; /* run `light-locker` first */
-static const char *clipmenu_cmd[]             = { "clipmenu", NULL }; /* run `clipmenud` first */
+static const char *clipmenu_cmd[]         = { "clipmenu", NULL }; /* run `clipmenud` first */
 static const char *firefox_cmd[]          = { "firefox", NULL };
 static const char *firefox_private_cmd[]  = { "firefox", "--private-window", NULL};
+static const char *xmice_cmd[]  = { "zsh", "-c", "~/bin/xmice.sh", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_semicolon, spawn,       {.v = xmice_cmd } },
 	{ MODKEY,                       XK_v,      spawn,          {.v = clipmenu_cmd } },
 	{ MODKEY,                       XK_Delete, spawn,          {.v = lock_cmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = firefox_cmd } },

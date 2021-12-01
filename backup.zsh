@@ -15,6 +15,9 @@ dirs=(
   ~/bin/autostart.sh ./home.bin
   ~/bin/restime.sh   ./home.bin
   ~/bin/timer.sh     ./home.bin
+  ~/bin/xmice.sh     ./home.bin
+  ~/bin/xmice        ./home.bin
+  ~/.config/nano/nanorc ./nano
 )
 for k v in "${(@kv)dirs}"; do
   # if not exist dest dir, create it

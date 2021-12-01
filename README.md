@@ -9,6 +9,7 @@ Private config of desktop environment(prefer feel over look).
 - restime.sh: remember to take a break, locate in path `~/bin`.
 - autostart.sh: autostart some programs, locate in path `~/bin`.
 - redshift\_schedule.sh: change redshift color temperature every one hour, locate in path `~/bin`.
+- xmice.sh: use `sxhkd` and `xdotool` do mouse action (move, scroll and click) with keyboard.
 - backup.zsh: backup some files.
 
 # Q&A
@@ -43,6 +44,10 @@ In most cases, it nesssary get nonfree display driver after system upgrade:
 ```
 sudo mhwd -a pci nonfree 0300
 ```
+
+## Adjust Sounds
+
+use `alsamixer`
 
 ## Boot Benckmark
 

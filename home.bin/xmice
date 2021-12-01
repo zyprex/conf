@@ -1,0 +1,17 @@
+# Grab keyboard name:
+#  $ xev -event keyboard
+# Usage: 
+#  $ sxhkd -c xmice
+Escape
+  pkill -f sxhkd
+{h, j, k, l}
+  xdotool mousemove_relative -- {-10 0, 0 10, 0 -10, 10 0} 
+shift + {h, j, k, l}
+  xdotool mousemove_relative -- {-100 0, 0 100, 0 -100, 100 0} 
+# ; m ' o i
+# left = 1, middle = 2, right = 3, wheel up = 4, wheel down = 5
+{semicolon, m, apostrophe, o, i}
+  xdotool click {1, 2, 3, 4, 5}
+# , .
+{comma, period}
+  xdotool {mousedown, mouseup} 1
