@@ -21,3 +21,5 @@ single_run dwm_bar    dwm_bar.sh&
 
 # Unload API functions
 unset -f single_run
+
+setxkbmap -option caps:swapescape

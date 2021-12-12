@@ -31,11 +31,17 @@ alias fff='find -L * -type f -iname' # find for file
 alias rm='rm -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
+# quick access
 alias grepenv='printenv | grep'
 alias zshconfig="vim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 # vim
 alias vimr='vim $(find * -type f -iregex "readme.*")'
+# git
+alias gs='git status'
+alias gd='git diff'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gac='git add --all && git commit -v'
 # bulk association
 alias -s {cpp,cxx,cc,c,hh,h,inl,asc,tex,TXT,txt,md}=$EDITOR
 alias -s {htm,html,org,com}=$BROWSER
