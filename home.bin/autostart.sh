@@ -1,4 +1,5 @@
 #!/bin/zsh
+if [[ -z "$DISPLAY" ]]; then exit; fi
 # xset b off
 single_run(){
   # terminate running instances

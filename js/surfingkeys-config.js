@@ -268,5 +268,6 @@ const openSearch = (x) => {
   { alias: 'sw', name: 'swisscows', url:'https://swisscows.com/web?query=', },
   { alias: 'li', name: 'lilo', url:'https://search.lilo.org/?q=', },
   { alias: 'kp', name: 'knowledgepicker', url:'https://knowledgepicker.com/search?q=', },
+  { alias: 'ya', name: 'yandex', url:'https://yandex.com/search/?text=', },
   { alias: 'sf', name: 'sourceforge', url:'https://sourceforge.net/directory/?q=', },
 ].forEach(x=>openSearch(x));

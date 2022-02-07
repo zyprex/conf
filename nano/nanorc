@@ -29,11 +29,12 @@ set smarthome
 set multibuffer
 set nonewlines
 set softwrap
+set mouse
 #set constantshow
 #set stateflags
-#set suspendable
 
 # useful keys
+bind ^Z suspend main
 ## ^G     for help
 ## M-X    enable help mode
 ## M-R    replace

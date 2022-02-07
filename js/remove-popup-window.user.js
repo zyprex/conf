@@ -13,6 +13,7 @@
 // @match        *unix.stackexchange.com/*
 // @match        *askubuntu.com/*
 // @match        *serverfault.com/*
+// @match        *cn.bing.com/*
 // @grant        none
 // ==/UserScript==
 let gID = 0; // global interval ID
@@ -24,6 +25,7 @@ let url = window.location.href;
   [
     [/\.zhihu\.com/, ['div.Modal-wrapper']],
     [/(stackoverflow|stackexchange|askubuntu|serverfault|superuser)\.com/, ['div.js-consent-banner']],
+    [/cn\.bing\.com/, ['div#ev_talkbox_wrapper']],
   ].map(v => { if (v[0].test(url)) { Ban(v[1]); } });
   setTimeout(() => { clearInterval(gID); }, 30000);
 })();

@@ -23,8 +23,8 @@ else
   alias lh='ls -d .*'
   alias llh='ls -lhFd --sort extension .* '
 fi
-alias dud='du -d 1 -h'
-alias duf='du -sh * | sort -h'
+alias dud='du -d 1 -h | sort -hr'
+alias duf='du -sh * | sort -hr'
 alias ffd='find * -type d -iname'    # find for directory
 alias fff='find -L * -type f -iname' # find for file
 # require confirm to use 'rm cp mv'
@@ -50,12 +50,16 @@ alias -s {pdf,PDF,epub,oxps}=$DOC_VIEWER
 alias -s {avi,flv,m4a,mkv,mov,mp3,mp4,mpeg,mpg,ogg,wav}=$MEDIA_PLAYER
 alias v='vim'
 alias e='emacs -nw'
+alias n='nano'
 
 if [[ ! $(type timer.sh >/dev/null) ]]; then
   alias timer30m='timer.sh -1800'
   alias timer10m='timer.sh -600'
   alias timer5m='timer.sh -300'
   alias timer3m='timer.sh -180'
+  timer_round(){
+    for i in {1..$2}; do timer.sh -$1 && echo $i'/'$2; done
+  }
 fi
 
 #
@@ -95,7 +99,7 @@ setopt HIST_REDUCE_BLANKS     # remove suprefluous blanks
 mkdircd(){
   mkdir -p $1 && cd $1
 }
-catless(){
+cats(){
   # cat use less only when file lines exceed term lines.
   if [[ -n $(sed -n "$(tput lines)p" $1) ]]; then
     cat $1 | less
