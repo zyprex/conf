@@ -122,6 +122,17 @@ export DIR_STACKS=${DIR_STACKS%:*} # remove last path
 }
 zle -N dir-stack-push
 zle -N dir-stack-pop
+# rename
+rename-extension(){
+for f in *.$1; do
+  mv $f "${f%.$1}.$2"
+  echo $f "-> ${f%.$1}.$2"
+done
+}
+# TOO DANGEROUS!!!
+# rename-extension-recursive(){
+# find . -depth -name "*.$1" -exec sh -c 'f="{}"; echo -- "$f" "${f%.$1}.$2"' \;
+# }
 # ranger
 ranger-cd(){
 source ranger

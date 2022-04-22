@@ -62,10 +62,14 @@ static const char *lock_cmd[]             = { "light-locker-command", "-l", NULL
 static const char *clipmenu_cmd[]         = { "clipmenu", NULL }; /* run `clipmenud` first */
 static const char *firefox_cmd[]          = { "firefox", NULL };
 static const char *firefox_private_cmd[]  = { "firefox", "--private-window", NULL};
-static const char *xmice_cmd[]  = { "zsh", "-c", "~/bin/xmice.sh", NULL};
+static const char *xmice_cmd[]            = { "zsh", "-c", "~/bin/xmice.sh", NULL};
+static const char *thunar_cmd[]           = { "thunar", NULL };
+static const char *chromium_cmd[]         = { "chromium", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|Mod1Mask,              XK_w,      spawn,          {.v = chromium_cmd } },
+	{ MODKEY,                       XK_e,      spawn,          {.v = thunar_cmd } },
 	{ MODKEY,                       XK_semicolon, spawn,       {.v = xmice_cmd } },
 	{ MODKEY,                       XK_v,      spawn,          {.v = clipmenu_cmd } },
 	{ MODKEY,                       XK_Delete, spawn,          {.v = lock_cmd } },

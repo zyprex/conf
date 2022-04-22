@@ -40,3 +40,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 # export FZF_CTRL_R_OPTS=
 export FZF_ALT_C_COMMAND="fd -H --type d --exclude={.git}"
+
+# Android Emulator
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+
