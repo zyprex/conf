@@ -27,6 +27,9 @@ export SAVEHIST=9999 # maximum events in history file
 # export QT_AUTO_SCREEN_SCALE_FACTOR=0
 # export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export GTK_THEME=
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
 
 # fzf
 # export FZF_DEFAULT_OPTS="--height=50% --layout=reverse --info=inline --border \

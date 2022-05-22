@@ -4,7 +4,6 @@ Private config of desktop environment(prefer feel over look).
 
 - zsh: replacement of bash.
 - suckless.org: dwm, windows manager, use some widget of xfce4.
-- xfwm4: minic dwm as many as possible.
 - timer.sh: countdown or countup seconds, locate in path `~/bin`.
 - restime.sh: remember to take a break, locate in path `~/bin`.
 - autostart.sh: autostart some programs, locate in path `~/bin`.
