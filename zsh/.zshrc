@@ -10,7 +10,7 @@ fpath=($ZSH_PLUGIN_DIR/local_completion $fpath)
 # Alias:
 #
 alias grep='grep --color=auto --exclude-dir={.git,CVS,.svn,.idea}'
-alias diff='grep --color'
+# alias diff='grep --color'
 alias so='source'
 if [[ ! $(type exa >/dev/null) ]]; then
   alias ls='exa'

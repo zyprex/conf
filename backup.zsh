@@ -7,10 +7,10 @@ dirs=(
   ~/.dir_colors     ./zsh/
   ~/.profile        ./zsh/
   ~/.bashrc_addon   ./zsh/
-  ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml                    ./xfce4/
-  ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml              ./xfce4/
-  ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml            ./xfce4/
-  ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ./xfce4/
+  # ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml                    ./xfce4/
+  # ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml              ./xfce4/
+  # ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml            ./xfce4/
+  # ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ./xfce4/
   ~/bin/redshift_schedule.sh ./home.bin
   ~/bin/autostart.sh ./home.bin
   ~/bin/restime.sh   ./home.bin
