@@ -1,50 +1,91 @@
-# for more option see /etc/nanorc
-
-# enable nano syntax highlight
+# For more options see '/etc/nanorc' or man(5) nanorc
+# language syntax highlight
 include "/usr/share/nano/*.nanorc"
-set titlecolor bold,white,blue
-set promptcolor lightwhite,grey
+#include "~/.nano/*.nanorc"
+
+# color styles [bold,][italic,]fgcolor,bgcolor
+# 8color
+#set titlecolor bold,lightblack,black
+#set promptcolor lightwhite,grey
+#set statuscolor bold,white,green
+#set errorcolor bold,white,red
+#set spotlightcolor black,lightyellow
+#set selectedcolor lightwhite,magenta
+#set stripecolor ,black
+#set scrollercolor lightblack
+#set numbercolor lightblack,grey
+#set keycolor cyan
+#set functioncolor green
+
+# 256color
+set titlecolor bold,lightblack,black
+set promptcolor lightblack,black
 set statuscolor bold,white,green
 set errorcolor bold,white,red
 set spotlightcolor black,lightyellow
 set selectedcolor lightwhite,magenta
-set stripecolor ,yellow
-set scrollercolor cyan
-set numbercolor cyan
+set stripecolor ,brown
+set scrollercolor grey
+set numbercolor grey,black
 set keycolor cyan
 set functioncolor green
 
-# settings
-set backup
-set backupdir "~/.cache/nano/backup"
-set autoindent
-set noconvert
-set tabsize 4
-set breaklonglines
-set indicator
+# behavior
+#set backup
+#set backupdir "~/.cache/nano/backup"
 set linenumbers
-set nohelp
-set boldtext
-set smarthome
-set multibuffer
-set nonewlines
-set softwrap
+set indicator
 set mouse
-#set constantshow
+set cutfromcursor
+set multibuffer
+set autoindent
+set tabsize 2
+set guidestripe 80
+set nonewlines
+set noconvert
+set breaklonglines
+set zap
+set minibar
+set showcursor
+set constantshow
+set smarthome
+set afterends
+set quickblank
+#set softwrap
+#set nohelp
+#set regexp
 #set stateflags
 
-# useful keys
-bind ^Z suspend main
-## ^G     for help
-## M-X    enable help mode
-## M-R    replace
-## M-A    mark
-## ^W     search forward
-## ^Q     search backward
-## M-3    comment or uncomment
-## M-S    toggle softwrap
-## ^R     read file into new buffer
-## M-,    previous buffer
-## M-.    next buffer
-## M-:    start/stop macro
-## M-;    run macro
+# MORE EMACS FLAVOR
+bind M-A beginpara main
+bind M-E endpara main
+bind M-F nextword main
+bind M-B prevword main
+bind M-D chopwordright main
+bind M-H chopwordleft main # discard smarthome switcher
+bind ^Space complete main
+bind M-Space complete main
+bind M-V pageup all
+
+# MORE SENSIBLE
+bind M-M mark main # discard mouse support switcher
+bind M-Y redo main # discard color syntax highlight switcher
+bind F5 formatter main # replace M-F
+bind F6 linter main # replace M-B
+bind F7 wordcount main # replace M-D
+bind ^Z suspend main # replace ^T^Z
+bind ^] verbatim main # replace M-V
+bind ^Y copy main # just like vim's yank
+
+
+# CONVENIENT BRACES
+bind Sh-M-a "''{left}" main # apostrophe
+bind Sh-M-q """{left}" main # quotation
+bind Sh-M-b "(){left}" main # bracket
+bind Sh-M-c "{{}}{left}" main # curly bracket
+bind Sh-M-n "<>{left}" main # angle bracket
+bind Sh-M-u "[]{left}" main # square bracket
+
+bind F1 "{insert}~/.config/nano/nanorc" main
+bind Sh-M-s "{{}}{left}{up}" main # scope, keep ^M^M use verbatim input
+bind Sh-M-m "</>{left}" main # angle bracket with slash
